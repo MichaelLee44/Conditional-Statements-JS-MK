@@ -3,38 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Bill Calculator</title>
+    <title>Conditional Statements JS</title>
 </head>
 <body>
-    <h1>Restaurant Bill Calculator</h1>
+    
 </body>
-<style>
-    body{
-        background-color: cornsilk;
-        color: cornsilk;
-        text-align: center;
-    }
-    h1{
-        background-color: cornflowerblue;
-    }
-</style>
 <script>
-    let outputField = document.querySelector("h1");
+    let inputOne = prompt("What number would you like to use first?");
+    if (isNaN(inputOne)){
+        inputOne = prompt ("You did not enter a valid number, please enter an integer.")
+    };
+    inputOne = parseInt(inputOne)
+    console.log("inputOne: " + inputOne)
 
-    let basePrice = parseFloat(prompt("How much did your food cost?"));
-    console.log ("basePrice: $" + basePrice);
-    outputField.innerHTML += `<br/>Base Price: $${basePrice}`; // template literal
+    let operatorInput = prompt("What action are you trying to do (enter as: *, /, +, -)");
+    if (operatorInput != "*" && operatorInput != "/" && operatorInput != "+" && operatorInput != "-"){
+        operatorInput = prompt("You did not enter a valid operator please enter a different operator.");
+    };
+    console.log("operatorINput: " + operatorInput)
 
-    let taxedPrice = basePrice + (basePrice * .07);
-    console.log ("taxedPrice: $" + taxedPrice);
-    outputField.innerHTML += "<br/>Taxed Price $" + taxedPrice; //concatenation
+    let inputTwo = prompt("What number would you like to use next?");
+    if (isNaN(inputTwo)){
+        inputTwo = prompt ("You did not enter a valid number, please enter an integer.")
+    };
+    inputTwo = parseInt(inputTwo)
+    console.log("inputTwo: " + inputTwo)
 
-    let tip = taxedPrice * .15;
-    console.log ("tip: $" + tip);
-    outputField.innerHTML += "<br/>Gratuity $" + tip;
+    let result = null
+    switch (operatorInput) {
+        case "+":
+            result = inputOne + inputTwo;
+            break;
+        case "-":
+            result = inputOne - inputTwo;
+            break;
+        case "*":
+            result = inputOne * inputTwo;
+            break;
+        case "/":
+            result = inputOne / inputTwo;
+            break;
+    }
 
-    let finalBill = taxedPrice + tip;
-    console.log ("finalBill: $" + finalBill);
-    outputField.innerHTML += "<br/>Final Bill: $" + finalBill;
+    alert(`${inputOne} ${operatorInput} ${inputTwo} = ${result}`)
 </script>
 </html>
