@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Bill Calculator</title>
+</head>
+<body>
+    <h1>Restaurant Bill Calculator</h1>
+</body>
+<style>
+    body{
+        background-color: cornsilk;
+        color: cornsilk;
+        text-align: center;
+    }
+    h1{
+        background-color: cornflowerblue;
+    }
+</style>
+<script>
+    let outputField = document.querySelector("h1");
+
+    let basePrice = parseFloat(prompt("How much did your food cost?"));
+    console.log ("basePrice: $" + basePrice);
+    outputField.innerHTML += `<br/>Base Price: $${basePrice}`; // template literal
+
+    let taxedPrice = basePrice + (basePrice * .07);
+    console.log ("taxedPrice: $" + taxedPrice);
+    outputField.innerHTML += "<br/>Taxed Price $" + taxedPrice; //concatenation
+
+    let tip = taxedPrice * .15;
+    console.log ("tip: $" + tip);
+    outputField.innerHTML += "<br/>Gratuity $" + tip;
+
+    let finalBill = taxedPrice + tip;
+    console.log ("finalBill: $" + finalBill);
+    outputField.innerHTML += "<br/>Final Bill: $" + finalBill;
+</script>
+</html>
